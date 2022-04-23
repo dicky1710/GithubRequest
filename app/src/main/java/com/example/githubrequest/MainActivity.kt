@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
                 val mgithubinfo =
                     fetchGitHubInfo(txtsearchuser.text.toString())
                 val jsonreader = JSONObject(mgithubinfo)
-                runOnUiThread(){
+                runOnUiThread(Runnable{
                     val id = jsonreader.getString("id")
                     val name = jsonreader.getString("name")
                     val url = jsonreader.getString("url")
@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
                     val bio = jsonreader.getString("bio")
                     tvInfo.text =
                         "${id}\n${name}\n${url}\n${blog}\n${bio}"
-                }
+                })
             }
         }
     }
